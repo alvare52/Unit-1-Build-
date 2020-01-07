@@ -20,6 +20,8 @@ class EventCollectionViewCell: UICollectionViewCell {
         return formatter
     }()
     
+    var delegate: EventCellDelegate?
+    
     var event: Event? {
         didSet {
             updateViews()
@@ -34,4 +36,10 @@ class EventCollectionViewCell: UICollectionViewCell {
         print(event.title)
     }
     
+}
+
+extension EventCollectionViewCell: EventCellDelegate {
+    func updateLabels(event: Event) {
+        countDownLabel.text = "Done"
+    }
 }

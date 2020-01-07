@@ -11,13 +11,33 @@ import UIKit
 //private let reuseIdentifier = "Cell"
 // AddEventSegue
 
+protocol EventCellDelegate {
+    func updateLabels(event: Event)
+}
+
 class EventCollectionViewController: UICollectionViewController {
     
     var eventController: EventController = EventController()
+    
+    var delegate: EventCellDelegate?
+    var timer: Timer?
+    var count = 0
+       
+    var dateFormatter: DateFormatter = {
+       let formatter = DateFormatter()
+       formatter.dateFormat = "HH:mm:ss"
+       return formatter
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        for event in eventController.events {
+            print("\(event.title)/\(event.tag)/\(dateFormatter.string(from: event.date))")
+        }
+        self.timer = nil
+        startTimer()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,6 +45,28 @@ class EventCollectionViewController: UICollectionViewController {
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+    }
+    
+    func startTimer() {
+        print("Started timer, current time: \(dateFormatter.string(from: Date()))")
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
+    }
+    
+    func updateTimer(timer: Timer) {
+        count += 1
+        print("\(count) current date = \(dateFormatter.string(from: Date()))")
+        if dateFormatter.string(from: eventController.events[0].date) <= dateFormatter.string(from: Date()) {
+            print("SET DATE = CURRENT DATE")
+            delegate?.updateLabels(event: eventController.events[0])
+            collectionView.backgroundColor = .black
+            //collectionView.reloadData()
+        }
+        
+        if count == 300 {
+            //guard let timer = self.timer else {return}
+            self.timer?.invalidate()
+            print("Stopped Timer")
+        }
     }
 
     /*
@@ -55,7 +97,8 @@ class EventCollectionViewController: UICollectionViewController {
     
         let event = eventController.events[indexPath.item]
         cell.event = event
-    
+        print(event.interval.description)
+        delegate = cell
         return cell
     }
     
