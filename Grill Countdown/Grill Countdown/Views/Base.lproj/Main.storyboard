@@ -12,7 +12,7 @@
         <!--Grill Countdown-->
         <scene sceneID="fbH-1A-0ST">
             <objects>
-                <collectionViewController id="jdm-qM-oq6" sceneMemberID="viewController">
+                <collectionViewController id="jdm-qM-oq6" customClass="EventCollectionViewController" customModule="Grill_Countdown" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ggW-5C-493">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="I9a-ge-y0w">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="I9a-ge-y0w" customClass="EventCollectionViewCell" customModule="Grill_Countdown" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aIL-yA-tNe">
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="1844.9275362318842" y="0.6696428571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Event View Controller-->
         <scene sceneID="MDi-nM-Una">
             <objects>
-                <viewController id="HOH-cB-f7i" sceneMemberID="viewController">
+                <viewController id="HOH-cB-f7i" customClass="AddEventViewController" customModule="Grill_Countdown" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cuk-tR-hPw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
