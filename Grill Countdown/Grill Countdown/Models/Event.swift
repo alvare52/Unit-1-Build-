@@ -16,6 +16,6 @@ class Event: Codable {
     init(title: String, tag: String, date: Date) {
         self.title = title
         self.tag = tag
-        self.date = date
+        self.date = date 
     }
 }

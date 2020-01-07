@@ -16,21 +16,61 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ggW-5C-493">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="poH-01-cm9">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="180" height="180"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="I9a-ge-y0w" customClass="EventCollectionViewCell" customModule="Grill_Countdown" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCell" id="I9a-ge-y0w" customClass="EventCollectionViewCell" customModule="Grill_Countdown" customModuleProvider="target">
+                                <rect key="frame" x="105.5" y="5" width="203" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aIL-yA-tNe">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="203" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="y74-6l-Nqu">
+                                            <rect key="frame" x="19.5" y="8.5" width="164" height="162.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXA-an-l4H">
+                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="20.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYB-im-RPS">
+                                                    <rect key="frame" x="0.0" y="64.5" width="164" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlp-JH-IbQ">
+                                                    <rect key="frame" x="0.0" y="129" width="164" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="y74-6l-Nqu" secondAttribute="trailing" constant="19.5" id="7at-8b-dNs"/>
+                                        <constraint firstAttribute="bottom" secondItem="y74-6l-Nqu" secondAttribute="bottom" constant="8" id="B4b-ek-oSW"/>
+                                        <constraint firstItem="y74-6l-Nqu" firstAttribute="leading" secondItem="aIL-yA-tNe" secondAttribute="leading" constant="19.5" id="nb8-52-PFz"/>
+                                        <constraint firstItem="y74-6l-Nqu" firstAttribute="top" secondItem="aIL-yA-tNe" secondAttribute="top" constant="8.5" id="o8s-Vd-Sbl"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="customSize" width="203" height="179"/>
+                                <connections>
+                                    <outlet property="countDownLabel" destination="zlp-JH-IbQ" id="KBV-Wy-5N9"/>
+                                    <outlet property="tagLabel" destination="vYB-im-RPS" id="S6P-jV-GRf"/>
+                                    <outlet property="titleLabel" destination="kXA-an-l4H" id="Png-w3-LJk"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -41,7 +81,7 @@
                     <navigationItem key="navigationItem" title="Grill Countdown" id="Hxi-PT-gZJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="VgP-TV-zxz">
                             <connections>
-                                <segue destination="HOH-cB-f7i" kind="show" id="0sp-Ze-s36"/>
+                                <segue destination="HOH-cB-f7i" kind="show" identifier="AddEventSegue" id="0sp-Ze-s36"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -50,21 +90,62 @@
             </objects>
             <point key="canvasLocation" x="1844.9275362318842" y="0.6696428571428571"/>
         </scene>
-        <!--Add Event View Controller-->
+        <!--Add Event-->
         <scene sceneID="MDi-nM-Una">
             <objects>
                 <viewController id="HOH-cB-f7i" customClass="AddEventViewController" customModule="Grill_Countdown" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cuk-tR-hPw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="srq-dL-De8">
+                                <rect key="frame" x="20" y="108" width="374" height="355"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t0N-Mh-1B6">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Tag" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n7v-0J-Zyq">
+                                        <rect key="frame" x="0.0" y="42" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hHO-qP-Jv7">
+                                        <rect key="frame" x="0.0" y="84" width="374" height="216"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOp-ia-IOm">
+                                        <rect key="frame" x="0.0" y="308" width="374" height="47"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="29"/>
+                                        <state key="normal" title="Create Event">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="HOH-cB-f7i" eventType="touchUpInside" id="GWj-OY-4kr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="srq-dL-De8" firstAttribute="leading" secondItem="vse-ue-gID" secondAttribute="leading" constant="20" id="do2-Lq-Q2L"/>
+                            <constraint firstItem="srq-dL-De8" firstAttribute="top" secondItem="vse-ue-gID" secondAttribute="top" constant="20" id="oR7-vd-LEg"/>
+                            <constraint firstItem="vse-ue-gID" firstAttribute="trailing" secondItem="srq-dL-De8" secondAttribute="trailing" constant="20" id="sMS-WU-6Cy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vse-ue-gID"/>
                     </view>
-                    <navigationItem key="navigationItem" id="S2Z-cg-qG1"/>
+                    <navigationItem key="navigationItem" title="Add Event" id="S2Z-cg-qG1"/>
+                    <connections>
+                        <outlet property="datePicker" destination="hHO-qP-Jv7" id="Mww-Mw-sRW"/>
+                        <outlet property="tagTextField" destination="n7v-0J-Zyq" id="Lq5-dD-8rQ"/>
+                        <outlet property="titleTextField" destination="t0N-Mh-1B6" id="RiS-iy-Vdi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wL-4a-JXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2552" y="1"/>
+            <point key="canvasLocation" x="2550.7246376811595" y="0.6696428571428571"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uuy-o6-Wxv">
@@ -115,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0cA-wm-B2s">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="0cA-wm-B2s">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0cA-wm-B2s" id="E71-pt-cmd">

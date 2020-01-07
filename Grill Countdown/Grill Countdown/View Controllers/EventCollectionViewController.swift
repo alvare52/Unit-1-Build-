@@ -9,8 +9,11 @@
 import UIKit
 
 //private let reuseIdentifier = "Cell"
+// AddEventSegue
 
 class EventCollectionViewController: UICollectionViewController {
+    
+    var eventController: EventController = EventController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,22 +41,30 @@ class EventCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return eventController.events.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCell", for: indexPath) as? EventCollectionViewCell else {return UICollectionViewCell()}
     
-        // Configure the cell
+        let event = eventController.events[indexPath.item]
+        cell.event = event
     
         return cell
     }
+    
+//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryItemCell", for: indexPath) as? GroceryItemCollectionViewCell else {return UICollectionViewCell()}
+//
+//    let item = groceryItemController.groceryItems[indexPath.item]
+//    cell.groceryItem = item
+//    itemSelectionDelegate = cell
+//    return cell
 
     // MARK: UICollectionViewDelegate
 

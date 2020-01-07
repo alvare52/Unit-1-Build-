@@ -9,11 +9,17 @@
 import Foundation
 
 class EventController {
-    var events: [Event] = []
+    var events: [Event] = [Event(title: "Test", tag: "Work", date: Date()),
+                           Event(title: "Homework", tag: "School", date: Date()),
+                           Event(title: "Wedding", tag: "Family", date: Date()),
+                           Event(title: "Read", tag: "Self", date: Date()),
+                            Event(title: "Bar", tag: "Friends", date: Date()),
+                            Event(title: "Gym", tag: "Health", date: Date())
+                            ]
     
-    init(event: Event) {
-        events.append(event)
-    }
+//    init(event: Event) {
+//        events.append(event)
+//    }
     
     // var fileManager {}
     // func saveFromPersistentStore
