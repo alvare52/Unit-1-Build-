@@ -15,11 +15,13 @@ class Event: Codable {
     var tag: String
     var date: Date
     var interval: DateInterval
+    var tempDate: Date
     
     init(title: String, tag: String, date: Date) {
         self.title = title
         self.tag = tag
         self.date = date
-        self.interval = DateInterval(start: Date(timeIntervalSince1970: 20), end: date)
+        self.interval = DateInterval(start: Date(timeIntervalSince1970: 20), end: date) //?
+        self.tempDate = date
     }
 }

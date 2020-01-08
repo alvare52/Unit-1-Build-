@@ -20,6 +20,12 @@ class EventCollectionViewCell: UICollectionViewCell {
         return formatter
     }()
     
+    var countdownFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd:HH:mm:ss"
+        return formatter
+    }()
+    
     var delegate: EventCellDelegate?
     
     var event: Event? {
@@ -38,8 +44,20 @@ class EventCollectionViewCell: UICollectionViewCell {
     
 }
 
+// Step 5
 extension EventCollectionViewCell: EventCellDelegate {
-    func updateLabels(event: Event) {
-        countDownLabel.text = "Done"
+    func updateLabels(passedEvent: Event) {
+        print("passedEvent title: \(passedEvent.title)")
+        passedEvent.title = "DONE"
+        
+        updateViews()
+        print("passedEvent title is now: \(passedEvent.title)")
+        countDownLabel.text = "ALSO DONE"
+    }
+    
+    func updateCounter(passedEvent: Event, passedDate: Date) {
+        print("called updateCounter")
+        passedEvent.tag = "\(countdownFormatter.string(from: passedEvent.tempDate))"
+        updateViews()
     }
 }

@@ -9,23 +9,29 @@
 
 import UIKit
 
+protocol AddEventDelegate {
+    func didAddEvent(event: Event)
+}
+
 class AddEventViewController: UIViewController {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var tagTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
-    //var event: Event?
+
+    var addEventDelegate: AddEventDelegate?
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         print("Button Pressed")
         print(datePicker.date)
+        // testing, should be checking textfields 
+        addEventDelegate?.didAddEvent(event: Event(title: "TESTING", tag: "TESTING", date: Date()))
         navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     

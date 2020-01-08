@@ -11,17 +11,20 @@ import UIKit
 //private let reuseIdentifier = "Cell"
 // AddEventSegue
 
+// Step 1
 protocol EventCellDelegate {
-    func updateLabels(event: Event)
+    func updateLabels(passedEvent: Event)
+    func updateCounter(passedEvent: Event, passedDate: Date)
 }
 
 class EventCollectionViewController: UICollectionViewController {
     
     var eventController: EventController = EventController()
     
-    var delegate: EventCellDelegate?
-    var timer: Timer?
-    var count = 0
+    // Step 2
+    var eventDelegate: EventCellDelegate?
+    //var timer: Timer?
+    var count: Double = 0.0
        
     var dateFormatter: DateFormatter = {
        let formatter = DateFormatter()
@@ -35,49 +38,70 @@ class EventCollectionViewController: UICollectionViewController {
         for event in eventController.events {
             print("\(event.title)/\(event.tag)/\(dateFormatter.string(from: event.date))")
         }
-        self.timer = nil
-        startTimer()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        //self.timer = nil
+        startTimers()
+        startMainTimer()
     }
     
-    func startTimer() {
-        print("Started timer, current time: \(dateFormatter.string(from: Date()))")
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
+    func startTimers() {
+        for _ in eventController.events {
+            let _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
+        }
     }
     
+    
+//    func startTimer() {
+//        print("Started timer, current time: \(dateFormatter.string(from: Date()))")
+//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
+//    }
+    
+    func startMainTimer() {
+        let _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateMainTimer(timer:))
+    }
+    
+    func updateMainTimer(timer: Timer) {
+        //count += 1
+        //let timeLeft: TimeInterval = 360.0
+        //let date = Date(timeIntervalSinceReferenceDate: timeLeft)
+        //print(dateFormatter.string(from: date))
+        for event in eventController.events {
+            
+            event.tempDate -= 1
+            print("tempDate is now: \(event.tempDate)")
+            eventDelegate?.updateCounter(passedEvent: event, passedDate: event.date) // ?
+            collectionView.reloadData()
+        }
+    }
+    
+    // func updateTimer(timer: Timer) {
     func updateTimer(timer: Timer) {
-        count += 1
-        print("\(count) current date = \(dateFormatter.string(from: Date()))")
-        if dateFormatter.string(from: eventController.events[0].date) <= dateFormatter.string(from: Date()) {
-            print("SET DATE = CURRENT DATE")
-            delegate?.updateLabels(event: eventController.events[0])
-            collectionView.backgroundColor = .black
-            //collectionView.reloadData()
-        }
         
-        if count == 300 {
-            //guard let timer = self.timer else {return}
-            self.timer?.invalidate()
-            print("Stopped Timer")
+        for currentEvent in eventController.events {
+        
+            print("\(currentEvent.title) \(dateFormatter.string(from: currentEvent.date)) - \(dateFormatter.string(from: Date()))")
+            if dateFormatter.string(from: currentEvent.date) <= dateFormatter.string(from: Date()) {
+                print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
+                print("currentEvent: \(currentEvent.title)")
+                // Step 3
+                eventDelegate?.updateLabels(passedEvent: currentEvent)
+                //eventController.events.remove(at: 1)
+                collectionView.reloadData()
+            }
         }
     }
-
-    /*
-    // MARK: - Navigation
+    
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "AddEventSegue" {
+            guard let addEventVC = segue.destination as? AddEventViewController else {return}
+            addEventVC.addEventDelegate = self // makes EventCollectionVC employee of addEventVC
+        }
+        
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -97,8 +121,8 @@ class EventCollectionViewController: UICollectionViewController {
     
         let event = eventController.events[indexPath.item]
         cell.event = event
-        print(event.interval.description)
-        delegate = cell
+        // Step 4
+        eventDelegate = cell
         return cell
     }
     
@@ -140,4 +164,11 @@ class EventCollectionViewController: UICollectionViewController {
     }
     */
 
+}
+
+extension EventCollectionViewController: AddEventDelegate {
+    func didAddEvent(event: Event) {
+        eventController.events.append(event)
+        collectionView.reloadData()
+    }
 }
