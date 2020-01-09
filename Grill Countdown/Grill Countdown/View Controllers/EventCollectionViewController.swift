@@ -58,19 +58,19 @@ class EventCollectionViewController: UICollectionViewController {
     
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
-        //RunLoop.current.add(timer!, forMode: .common)
+        RunLoop.current.add(timer!, forMode: .common)
+        timer?.tolerance = 0.1 // ???
     }
     
-    
-    /*
-        @objc func refreshCountdowns() {
-        collectionview.reloadData()
-        for visibleCell is collectionView.visibleCells {
+
+    func refreshCountdowns() {
+        collectionView.reloadData()
+        for visibleCell in collectionView.visibleCells {
             guard let cell = visibleCell as? EventCollectionViewCell else { continue }
             cell.updateViews()
         }
-     }
-     */
+    }
+     
     
     // should check that array isn't empty
     func updateTimer(timer: Timer) {
@@ -81,14 +81,17 @@ class EventCollectionViewController: UICollectionViewController {
             currentEvent.interval = currentEvent.date.timeIntervalSinceNow
             print("interval now \(currentEvent.interval)")
             eventDelegate?.updateCounter(passedEvent: currentEvent) // ?
-            collectionView.reloadData()
+            refreshCountdowns()
+            //collectionView.reloadData()
             if dateFormatter.string(from: currentEvent.date) <= dateFormatter.string(from: Date()) {
                 print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
                 print("currentEvent: \(currentEvent.title)")
                 // Step 3
                 eventDelegate?.updateLabels(passedEvent: currentEvent)
-                eventController.events.remove(at: eventController.events.firstIndex(of: currentEvent)!)
-                collectionView.reloadData()
+                // ADD THIS BACK LATER
+                //eventController.events.remove(at: eventController.events.firstIndex(of: currentEvent)!)
+                refreshCountdowns()
+                //collectionView.reloadData()
                 // if events.count is 0, then timer.invalidate(), timer = nil
             }
         }
@@ -126,8 +129,8 @@ class EventCollectionViewController: UICollectionViewController {
         cell.event = event
         // Step 4
         eventDelegate = cell
-        cell.layer.borderWidth = 2.5
-        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.orange.cgColor
         return cell
     }
     

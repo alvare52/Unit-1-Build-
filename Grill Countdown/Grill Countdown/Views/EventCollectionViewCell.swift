@@ -10,8 +10,8 @@ import UIKit
 
 class EventCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var tagLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel! // title + tag of event
+    @IBOutlet weak var tagLabel: UILabel! // date when it will finish
     @IBOutlet weak var countDownLabel: UILabel!
     
     var dateFormatter: DateFormatter = {
@@ -38,9 +38,10 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     func updateViews() {
         guard let event = event else {return}
-        titleLabel.text = event.title
-        tagLabel.text = event.tag
-        countDownLabel.text = dateFormatter.string(from: event.date)
+        titleLabel.text = event.title + " - " + event.tag
+        //tagLabel.text = event.tag
+        tagLabel.text = dateFormatter.string(from: event.date)
+        countDownLabel.text = event.countdown
         print(event.title)
     }
     
@@ -55,7 +56,8 @@ extension EventCollectionViewCell: EventCellDelegate {
     
     func updateCounter(passedEvent: Event) {
         let date = Date(timeIntervalSinceReferenceDate: passedEvent.interval)
-        passedEvent.tag = "\(countdownFormatter.string(from: date))"
+        // used to be .tag
+        passedEvent.countdown = "\(countdownFormatter.string(from: date))"
         countDownLabel.text = "\(countdownFormatter.string(from: date))"
         //updateViews() //?
     }
