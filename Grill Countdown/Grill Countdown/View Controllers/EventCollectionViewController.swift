@@ -53,7 +53,7 @@ class EventCollectionViewController: UICollectionViewController {
         print("realDateString is \(realDateString)")
         print("displayedDateString is \(displayedDateString)")
         
-        
+        //sendNotification() not done
     }
     
     func startTimer() {
@@ -62,6 +62,15 @@ class EventCollectionViewController: UICollectionViewController {
         timer?.tolerance = 0.1 // ???
     }
     
+    func sendNotification() {
+        let note = UNMutableNotificationContent()
+        note.title = "IT'S TIME TO GRILL!"
+        note.body = "Start grillin for God's sake!"
+        note.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "done", content: note, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
 
     func refreshCountdowns() {
         collectionView.reloadData()
@@ -86,6 +95,7 @@ class EventCollectionViewController: UICollectionViewController {
             if dateFormatter.string(from: currentEvent.date) <= dateFormatter.string(from: Date()) {
                 print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
                 print("currentEvent: \(currentEvent.title)")
+                //sendNotification() // not done,
                 showAlert(event: currentEvent) // uncomment later
                 // Step 3
                 eventDelegate?.updateLabels(passedEvent: currentEvent)
