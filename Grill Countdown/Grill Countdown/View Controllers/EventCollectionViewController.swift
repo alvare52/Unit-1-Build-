@@ -18,6 +18,8 @@ class EventCollectionViewController: UICollectionViewController {
     
     var eventController: EventController = EventController()
     
+    var timer: Timer?
+    
     // Step 2
     var eventDelegate: EventCellDelegate?
        
@@ -29,14 +31,16 @@ class EventCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        startTimer()
+        startTimer() // should only start when array isn't empty.
+        // viewwillappear should startTimer() if array is empty but then you create one
     }
     
     func startTimer() {
-        let _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
     }
     
-    // should first check if array isn't empty?
+    
+    // should check that array isn't empty
     func updateTimer(timer: Timer) {
         
         for currentEvent in eventController.events {
@@ -51,8 +55,9 @@ class EventCollectionViewController: UICollectionViewController {
                 print("currentEvent: \(currentEvent.title)")
                 // Step 3
                 eventDelegate?.updateLabels(passedEvent: currentEvent)
-                //eventController.events.remove(at: 1)
+                eventController.events.remove(at: eventController.events.firstIndex(of: currentEvent)!)
                 collectionView.reloadData()
+                // if events.count is 0, then timer.invalidate(), timer = nil
             }
         }
     }

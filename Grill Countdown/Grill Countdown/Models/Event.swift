@@ -9,7 +9,11 @@
 import Foundation
 
 // NSCoding protocol?
-class Event: Codable {
+class Event: Codable, Equatable {
+    
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        return lhs.title == rhs.title && lhs.tag == rhs.tag
+    }
     
     var title: String
     var tag: String
