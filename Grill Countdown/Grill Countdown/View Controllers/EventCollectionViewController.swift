@@ -41,7 +41,9 @@ class EventCollectionViewController: UICollectionViewController {
         
         for currentEvent in eventController.events {
         
-            currentEvent.interval -= 1
+            //currentEvent.interval -= 1
+            currentEvent.interval = currentEvent.date.timeIntervalSinceNow
+            print("interval now \(currentEvent.interval)")
             eventDelegate?.updateCounter(passedEvent: currentEvent) // ?
             collectionView.reloadData()
             if dateFormatter.string(from: currentEvent.date) <= dateFormatter.string(from: Date()) {
