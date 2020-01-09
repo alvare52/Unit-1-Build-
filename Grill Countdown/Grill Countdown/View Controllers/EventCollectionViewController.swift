@@ -126,6 +126,8 @@ class EventCollectionViewController: UICollectionViewController {
         cell.event = event
         // Step 4
         eventDelegate = cell
+        cell.layer.borderWidth = 2.5
+        cell.layer.borderColor = UIColor.black.cgColor
         return cell
     }
     
