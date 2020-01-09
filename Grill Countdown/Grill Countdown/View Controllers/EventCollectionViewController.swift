@@ -67,6 +67,7 @@ class EventCollectionViewController: UICollectionViewController {
         for event in eventController.events {
             
             event.tempDate -= 1
+            event.interval -= 1
             print("tempDate is now: \(event.tempDate)")
             eventDelegate?.updateCounter(passedEvent: event, passedDate: event.date) // ?
             collectionView.reloadData()

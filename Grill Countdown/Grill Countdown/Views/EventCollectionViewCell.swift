@@ -17,12 +17,14 @@ class EventCollectionViewCell: UICollectionViewCell {
     var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd, yyyy HH:mm:ss"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }()
     
     var countdownFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd:HH:mm:ss"
+        formatter.dateFormat = "00" + ":HH:mm:ss"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }()
     
@@ -57,7 +59,12 @@ extension EventCollectionViewCell: EventCellDelegate {
     
     func updateCounter(passedEvent: Event, passedDate: Date) {
         print("called updateCounter")
-        passedEvent.tag = "\(countdownFormatter.string(from: passedEvent.tempDate))"
+        //let date = Date(timeIntervalSinceReferenceDate: 9000)
+        let date = Date(timeIntervalSinceReferenceDate: passedEvent.interval)
+        let formattedDate = countdownFormatter.string(from: date)
+        print("formattedDate is \(formattedDate)")
+        passedEvent.tag = "\(countdownFormatter.string(from: date))"
+        //passedEvent.tag = "\(countdownFormatter.string(from: passedEvent.tempDate))"
         updateViews()
     }
 }
