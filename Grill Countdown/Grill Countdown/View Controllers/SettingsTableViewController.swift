@@ -11,6 +11,8 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     
     var settingsController = SettingsController()
+    
+    var orderSettings: [Setting] = [Setting(title: "Recents First", isSelected: true)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,24 +28,37 @@ class SettingsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1 // should be 2
+        return 2 // change later for 2 sections
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return settingsController.settingsArray.count
+        // for 2 sections later
+        if section == 0 {
+            return settingsController.settingsArray.count
+        }
+        return 1
+        //return settingsController.settingsArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? SettingsTableViewCell else {fatalError("error")}
 
-        let setting = settingsController.settingsArray[indexPath.row]
+        //let setting = settingsController.settingsArray[indexPath.row]
+        let setting = indexPath.section == 0 ? settingsController.settingsArray[indexPath.row] :
+            orderSettings[indexPath.row]
+        
         cell.setting = setting
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Precision"
+        }
+        return "Order"
+    }
 
     /*
     // Override to support conditional editing of the table view.
