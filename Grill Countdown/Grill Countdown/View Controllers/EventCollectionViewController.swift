@@ -8,13 +8,10 @@
 
 import UIKit
 
-//private let reuseIdentifier = "Cell"
-// AddEventSegue
-
 // Step 1
 protocol EventCellDelegate {
     func updateLabels(passedEvent: Event)
-    func updateCounter(passedEvent: Event, passedDate: Date)
+    func updateCounter(passedEvent: Event)
 }
 
 class EventCollectionViewController: UICollectionViewController {
@@ -23,8 +20,6 @@ class EventCollectionViewController: UICollectionViewController {
     
     // Step 2
     var eventDelegate: EventCellDelegate?
-    //var timer: Timer?
-    var count: Double = 0.0
        
     var dateFormatter: DateFormatter = {
        let formatter = DateFormatter()
@@ -34,52 +29,21 @@ class EventCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for event in eventController.events {
-            print("\(event.title)/\(event.tag)/\(dateFormatter.string(from: event.date))")
-        }
-        //self.timer = nil
-        startTimers()
-        startMainTimer()
+        startTimer()
     }
     
-    func startTimers() {
-        for _ in eventController.events {
-            let _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
-        }
+    func startTimer() {
+        let _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
     }
     
-    
-//    func startTimer() {
-//        print("Started timer, current time: \(dateFormatter.string(from: Date()))")
-//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
-//    }
-    
-    func startMainTimer() {
-        let _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateMainTimer(timer:))
-    }
-    
-    func updateMainTimer(timer: Timer) {
-        //count += 1
-        //let timeLeft: TimeInterval = 360.0
-        //let date = Date(timeIntervalSinceReferenceDate: timeLeft)
-        //print(dateFormatter.string(from: date))
-        for event in eventController.events {
-            
-            event.tempDate -= 1
-            event.interval -= 1
-            print("tempDate is now: \(event.tempDate)")
-            eventDelegate?.updateCounter(passedEvent: event, passedDate: event.date) // ?
-            collectionView.reloadData()
-        }
-    }
-    
-    // func updateTimer(timer: Timer) {
+    // should first check if array isn't empty?
     func updateTimer(timer: Timer) {
         
         for currentEvent in eventController.events {
         
-            print("\(currentEvent.title) \(dateFormatter.string(from: currentEvent.date)) - \(dateFormatter.string(from: Date()))")
+            currentEvent.interval -= 1
+            eventDelegate?.updateCounter(passedEvent: currentEvent) // ?
+            collectionView.reloadData()
             if dateFormatter.string(from: currentEvent.date) <= dateFormatter.string(from: Date()) {
                 print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
                 print("currentEvent: \(currentEvent.title)")
@@ -94,8 +58,7 @@ class EventCollectionViewController: UICollectionViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
         if segue.identifier == "AddEventSegue" {
             guard let addEventVC = segue.destination as? AddEventViewController else {return}
             addEventVC.addEventDelegate = self // makes EventCollectionVC employee of addEventVC

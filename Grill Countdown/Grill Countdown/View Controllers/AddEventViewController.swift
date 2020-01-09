@@ -25,7 +25,7 @@ class AddEventViewController: UIViewController {
         print("Button Pressed")
         print(datePicker.date)
         // testing, should be checking textfields 
-        addEventDelegate?.didAddEvent(event: Event(title: "TESTING", tag: "TESTING", date: Date()))
+        addEventDelegate?.didAddEvent(event: Event(title: "TESTING", tag: "TESTING", date: Date(timeIntervalSinceNow: 8)))
         navigationController?.popViewController(animated: true)
     }
     

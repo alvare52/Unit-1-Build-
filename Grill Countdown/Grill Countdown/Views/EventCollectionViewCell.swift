@@ -49,22 +49,14 @@ class EventCollectionViewCell: UICollectionViewCell {
 // Step 5
 extension EventCollectionViewCell: EventCellDelegate {
     func updateLabels(passedEvent: Event) {
-        print("passedEvent title: \(passedEvent.title)")
         passedEvent.title = "DONE"
-        
         updateViews()
-        print("passedEvent title is now: \(passedEvent.title)")
-        countDownLabel.text = "ALSO DONE"
     }
     
-    func updateCounter(passedEvent: Event, passedDate: Date) {
-        print("called updateCounter")
-        //let date = Date(timeIntervalSinceReferenceDate: 9000)
+    func updateCounter(passedEvent: Event) {
         let date = Date(timeIntervalSinceReferenceDate: passedEvent.interval)
-        let formattedDate = countdownFormatter.string(from: date)
-        print("formattedDate is \(formattedDate)")
         passedEvent.tag = "\(countdownFormatter.string(from: date))"
-        //passedEvent.tag = "\(countdownFormatter.string(from: passedEvent.tempDate))"
-        updateViews()
+        countDownLabel.text = "\(countdownFormatter.string(from: date))"
+        //updateViews() //?
     }
 }
