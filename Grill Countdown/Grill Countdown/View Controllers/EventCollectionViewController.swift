@@ -86,10 +86,11 @@ class EventCollectionViewController: UICollectionViewController {
             if dateFormatter.string(from: currentEvent.date) <= dateFormatter.string(from: Date()) {
                 print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
                 print("currentEvent: \(currentEvent.title)")
+                showAlert(event: currentEvent) // uncomment later
                 // Step 3
                 eventDelegate?.updateLabels(passedEvent: currentEvent)
                 // ADD THIS BACK LATER
-                //eventController.events.remove(at: eventController.events.firstIndex(of: currentEvent)!)
+                eventController.events.remove(at: eventController.events.firstIndex(of: currentEvent)!)
                 refreshCountdowns()
                 //collectionView.reloadData()
                 // if events.count is 0, then timer.invalidate(), timer = nil
@@ -97,6 +98,11 @@ class EventCollectionViewController: UICollectionViewController {
         }
     }
     
+    func showAlert(event: Event) {
+        let alert = UIAlertController(title: "Timer Done!", message: "Start grillin for God's sake!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -131,6 +137,7 @@ class EventCollectionViewController: UICollectionViewController {
         eventDelegate = cell
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.orange.cgColor
+        
         return cell
     }
     

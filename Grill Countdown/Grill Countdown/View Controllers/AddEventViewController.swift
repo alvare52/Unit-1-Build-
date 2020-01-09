@@ -29,10 +29,9 @@ class AddEventViewController: UIViewController {
     }()
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        print("Button Pressed")
-        
-        // testing, should be checking textfields // also date: used to be date: Date since blah
-        addEventDelegate?.didAddEvent(event: Event(title: "TESTING", tag: "TESTING", date: datePicker.date))
+        guard let title = titleTextField.text, let tag = tagTextField.text, !title.isEmpty, !tag.isEmpty else {return}
+        addEventDelegate?.didAddEvent(event: Event(title: title, tag: tag, date: datePicker.date))
+        print("datePicker.date is \(datePicker.date)")
         navigationController?.popViewController(animated: true)
     }
     
