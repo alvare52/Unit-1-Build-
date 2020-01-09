@@ -25,7 +25,8 @@ class EventCollectionViewController: UICollectionViewController {
        
     var dateFormatter: DateFormatter = {
        let formatter = DateFormatter()
-       formatter.dateFormat = "HH:mm:ss"
+       formatter.dateFormat = "hh:mm:ss"
+       formatter.timeZone = TimeZone(secondsFromGMT: 0)
        return formatter
     }()
 
@@ -33,12 +34,43 @@ class EventCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         startTimer() // should only start when array isn't empty.
         // viewwillappear should startTimer() if array is empty but then you create one
+        for event in eventController.events {
+            print("\(event.date)")
+        }
+        
+//        // add this to viewcell
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MMM-dd hh:mm:ss"
+        //dateFormatter.timeZone = TimeZone(secondsFromGMT: -28800)
+        dateFormatter.locale = Locale(identifier: "en_US")
+        let displayedDate = Date()
+        var realDate = Date()
+        realDate.addTimeInterval(-28800)
+        print("realDate is \(realDate)")
+        print("displayedDate is \(displayedDate)")
+        let displayedDateString = dateFormatter.string(from: displayedDate)
+        let realDateString = dateFormatter.string(from: realDate)
+        print("realDateString is \(realDateString)")
+        print("displayedDateString is \(displayedDateString)")
+        
+        
     }
     
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
+        //RunLoop.current.add(timer!, forMode: .common)
     }
     
+    
+    /*
+        @objc func refreshCountdowns() {
+        collectionview.reloadData()
+        for visibleCell is collectionView.visibleCells {
+            guard let cell = visibleCell as? EventCollectionViewCell else { continue }
+            cell.updateViews()
+        }
+     }
+     */
     
     // should check that array isn't empty
     func updateTimer(timer: Timer) {

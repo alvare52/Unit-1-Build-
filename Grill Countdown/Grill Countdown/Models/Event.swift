@@ -27,6 +27,6 @@ class Event: Codable, Equatable {
         self.date = date
         self.interval = date.timeIntervalSinceNow
         //self.lastDate = date - self.interval
-        //print()
+        print("current date is \(Date())")
     }
 }

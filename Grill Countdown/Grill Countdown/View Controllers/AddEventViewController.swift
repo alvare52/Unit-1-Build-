@@ -21,17 +21,24 @@ class AddEventViewController: UIViewController {
 
     var addEventDelegate: AddEventDelegate?
     
+    var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy hh:mm:ss"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter
+    }()
+    
     @IBAction func buttonPressed(_ sender: UIButton) {
         print("Button Pressed")
-        print(datePicker.date)
-        // testing, should be checking textfields 
-        addEventDelegate?.didAddEvent(event: Event(title: "TESTING", tag: "TESTING", date: Date(timeIntervalSinceNow: 8)))
+        
+        // testing, should be checking textfields // also date: used to be date: Date since blah
+        addEventDelegate?.didAddEvent(event: Event(title: "TESTING", tag: "TESTING", date: datePicker.date))
         navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        datePicker.minimumDate = Date()
         // Do any additional setup after loading the view.
     }
     

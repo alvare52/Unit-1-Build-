@@ -16,14 +16,14 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd, yyyy HH:mm:ss"
+        formatter.dateFormat = "MMM dd, yyyy hh:mm:ss"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }()
     
     var countdownFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "00" + ":HH:mm:ss"
+        formatter.dateFormat = "00" + ":HH:mm:ss" // hh was adding 12
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }()
