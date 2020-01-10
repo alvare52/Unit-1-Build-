@@ -9,7 +9,7 @@
 import Foundation
 
 class Setting {
-    // should use userDefaults to save state of switch
+    
     var title: String
     var isSelected: Bool
     var key: String

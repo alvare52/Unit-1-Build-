@@ -30,32 +30,14 @@ class AddEventViewController: UIViewController {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         guard let title = titleTextField.text, let tag = tagTextField.text, !title.isEmpty, !tag.isEmpty else {return}
-        let testDate = Date(timeIntervalSinceNow: 60)
-        print("Date is \(Date())")
-        print("testDate is \(testDate)")
-        //addEventDelegate?.didAddEvent(event: Event(title: "Test", tag: "Work", date: testDate))
-        // add this back later?
+        
         addEventDelegate?.didAddEvent(event: Event(title: title, tag: tag, date: datePicker.date))
-        print("\(title) was created!")
-        print("datePicker.date is \(datePicker.date)")
         navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.minimumDate = Date()
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

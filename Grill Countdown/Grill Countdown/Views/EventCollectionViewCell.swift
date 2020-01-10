@@ -17,20 +17,19 @@ class EventCollectionViewCell: UICollectionViewCell {
     var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd, yyyy hh:mm:ss a"
-        //formatter.timeZone = TimeZone(secondsFromGMT: 0) // this was breaking label
         return formatter
     }()
     
     var countdownFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd:HH:mm:ss" // hh was adding 12
+        formatter.dateFormat = "dd:HH:mm:ss"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }()
     
     var dayFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = ":HH:mm:ss" // hh was adding 12
+        formatter.dateFormat = ":HH:mm:ss"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }()
@@ -60,9 +59,6 @@ class EventCollectionViewCell: UICollectionViewCell {
             }
         }
         
-        // add later because it works
-        //countDownLabel.text = event.countdown
-        
         print(event.title)
     }
     
@@ -76,27 +72,12 @@ extension EventCollectionViewCell: EventCellDelegate {
     }
     
     func updateCounter(passedEvent: Event) {
+        
         let date = Date(timeIntervalSinceReferenceDate: passedEvent.interval)
-        // used to be .tag
-        
-        // ADD BACK IF NEEDED
-        //passedEvent.countdown = "\(countdownFormatter.string(from: date))"
-        
-        
         countDownLabel.text = "\(countdownFormatter.string(from: date))"
-        
-        print("COUNTDOWNLABEL.TEXT = \(dayFormatter.string(from: date))")
         let testString = countdownFormatter.string(from: date)
-        print("test string is \(testString)")
-        
-        
-        //let fixedString = fixDay(string: testString) + dayFormatter.string(from: date)
-        let fixedString = correctDay(secs: passedEvent.interval) + dayFormatter.string(from: date) // ?
-        
-        print("FIXED")
-        print(fixedString)
+        let fixedString = correctDay(secs: passedEvent.interval) + dayFormatter.string(from: date)
         passedEvent.countdown = fixedString
-        
     }
     
     // takes in seconds and returns that amount in days

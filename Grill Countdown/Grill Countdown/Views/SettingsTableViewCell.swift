@@ -8,13 +8,10 @@
 
 import UIKit
 
-
-
 class SettingsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var switchOutlet: UISwitch!
-    
     
     @IBAction func switchTapped(_ sender: UISwitch) {
         print("switch tapped")

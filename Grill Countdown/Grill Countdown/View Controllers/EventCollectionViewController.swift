@@ -8,7 +8,6 @@
 
 import UIKit
 
-// Step 1
 protocol EventCellDelegate {
     func updateLabels(passedEvent: Event)
     func updateCounter(passedEvent: Event)
@@ -27,7 +26,6 @@ class EventCollectionViewController: UICollectionViewController {
     var settingsController = SettingsController()
     var timer: Timer?
     
-    // Step 2
     var eventDelegate: EventCellDelegate?
        
     var dateFormatter: DateFormatter = {
@@ -39,8 +37,7 @@ class EventCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        startTimer() // should only start when array isn't empty.
-        // viewwillappear should startTimer() if array is empty but then you create one
+        startTimer()
         for event in eventController.events {
             print("\(event.date)")
         }
@@ -76,7 +73,6 @@ class EventCollectionViewController: UICollectionViewController {
 
     func refreshCountdowns() {
         collectionView.reloadData()
-        
     }
      
     /// Returns and array of ordered events and starts with the event that is closest to finishing
@@ -93,17 +89,11 @@ class EventCollectionViewController: UICollectionViewController {
         
         for currentEvent in eventController.events {
         
-            //currentEvent.interval -= 1
             currentEvent.interval = currentEvent.date.timeIntervalSinceNow
-            print("interval now \(currentEvent.interval)")
-            print("event date is \(currentEvent.date)")
-            print("Date() is \(Date())")
             eventDelegate?.updateCounter(passedEvent: currentEvent) // ?
             refreshCountdowns()
             collectionView.reloadData()
             
-            // OLD way of checking, using dateFormatter that doesn't have dd:
-            //if dateFormatter.string(from: currentEvent.date) <= dateFormatter.string(from: Date())
             if currentEvent.date <= Date() {
                 print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
                 print("currentEvent: \(currentEvent.title)")
@@ -140,13 +130,13 @@ class EventCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+        
         return eventController.events.count
     }
 
@@ -164,44 +154,6 @@ class EventCollectionViewController: UICollectionViewController {
         return cell
     }
     
-//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryItemCell", for: indexPath) as? GroceryItemCollectionViewCell else {return UICollectionViewCell()}
-//
-//    let item = groceryItemController.groceryItems[indexPath.item]
-//    cell.groceryItem = item
-//    itemSelectionDelegate = cell
-//    return cell
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
 
 extension EventCollectionViewController: AddEventDelegate {
