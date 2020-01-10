@@ -18,6 +18,7 @@ class EventCollectionViewController: UICollectionViewController {
     @IBAction func deleteAll(_ sender: UIBarButtonItem) {
         for event in eventController.events {
             eventController.events.remove(at: eventController.events.firstIndex(of: event)!)
+            eventController.saveToPersistentStore()
             collectionView.reloadData()
         }
     }
@@ -41,7 +42,7 @@ class EventCollectionViewController: UICollectionViewController {
         for event in eventController.events {
             print("\(event.date)")
         }
-        //eventController.loadFromPersistentStore() // Later or viewWillAppear
+        eventController.loadFromPersistentStore() 
         
     }
     
@@ -97,15 +98,12 @@ class EventCollectionViewController: UICollectionViewController {
             if currentEvent.date <= Date() {
                 print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
                 print("currentEvent: \(currentEvent.title)")
-                sendNotification() // not done,
-                showAlert(event: currentEvent) // uncomment later
-                // Step 3
+                sendNotification()
+                showAlert(event: currentEvent)
                 eventDelegate?.updateLabels(passedEvent: currentEvent)
-                // ADD THIS BACK LATER
                 eventController.events.remove(at: eventController.events.firstIndex(of: currentEvent)!)
                 refreshCountdowns()
                 collectionView.reloadData()
-                // if events.count is 0, then timer.invalidate(), timer = nil
             }
         }
     }
@@ -116,7 +114,6 @@ class EventCollectionViewController: UICollectionViewController {
         present(alert, animated: true, completion: nil)
     }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
         if segue.identifier == "AddEventSegue" {
@@ -145,12 +142,10 @@ class EventCollectionViewController: UICollectionViewController {
     
         let event = eventController.events[indexPath.item]
         cell.event = event
-        // Step 4
         eventDelegate = cell
         cell.layer.borderWidth = 2
         cell.layer.borderColor = UIColor.orange.cgColor
-        cell.layer.cornerRadius = 50.0 
-        
+        cell.layer.cornerRadius = 50.0
         return cell
     }
     
@@ -159,8 +154,8 @@ class EventCollectionViewController: UICollectionViewController {
 extension EventCollectionViewController: AddEventDelegate {
     func didAddEvent(event: Event) {
         eventController.events.append(event)
-        //eventController.saveToPersistentStore() // Later
-        orderEvents()//?
+        eventController.saveToPersistentStore()
+        orderEvents()
         collectionView.reloadData()
     }
 }
