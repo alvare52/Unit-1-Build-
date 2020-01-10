@@ -17,13 +17,13 @@ class EventCollectionViewCell: UICollectionViewCell {
     var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd, yyyy hh:mm:ss"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        //formatter.timeZone = TimeZone(secondsFromGMT: 0) // this was breaking label
         return formatter
     }()
     
     var countdownFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "00" + ":HH:mm:ss" // hh was adding 12
+        formatter.dateFormat = "dd:HH:mm:ss" // hh was adding 12
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }()
@@ -40,6 +40,9 @@ class EventCollectionViewCell: UICollectionViewCell {
         guard let event = event else {return}
         titleLabel.text = event.title + " - " + event.tag
         //tagLabel.text = event.tag
+        print("TAGLABEL is \(dateFormatter.string(from: event.date))")
+        //let fakeLabel = event.date
+        //print("fake label is \(fakeLabel)")
         tagLabel.text = dateFormatter.string(from: event.date)
         countDownLabel.text = event.countdown
         print(event.title)

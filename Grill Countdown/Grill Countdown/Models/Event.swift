@@ -30,5 +30,6 @@ class Event: Codable, Equatable {
         self.countdown = "00:00:00:00"
         //self.lastDate = date - self.interval
         print("current date is \(Date())")
+        print("event.date = \(self.date)")
     }
 }

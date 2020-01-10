@@ -40,7 +40,7 @@ class EventCollectionViewController: UICollectionViewController {
         
 //        // add this to viewcell
         let dateFormatter : DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MMM-dd hh:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MMM-dd HH:mm:ss"
         //dateFormatter.timeZone = TimeZone(secondsFromGMT: -28800)
         dateFormatter.locale = Locale(identifier: "en_US")
         let displayedDate = Date()
@@ -89,6 +89,8 @@ class EventCollectionViewController: UICollectionViewController {
             //currentEvent.interval -= 1
             currentEvent.interval = currentEvent.date.timeIntervalSinceNow
             print("interval now \(currentEvent.interval)")
+            print("event date is \(currentEvent.date)")
+            print("Date() is \(Date())")
             eventDelegate?.updateCounter(passedEvent: currentEvent) // ?
             refreshCountdowns()
             //collectionView.reloadData()
@@ -109,7 +111,7 @@ class EventCollectionViewController: UICollectionViewController {
     }
     
     func showAlert(event: Event) {
-        let alert = UIAlertController(title: "Timer Done!", message: "Start grillin for God's sake!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "IT'S TIME TO GRILL!", message: "Start grillin for God's sake!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }

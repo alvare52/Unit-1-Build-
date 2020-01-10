@@ -9,8 +9,8 @@
 import Foundation
 
 class EventController {
-    var events: [Event] = [Event(title: "Test", tag: "Work", date: Date(timeIntervalSinceNow: 15)),
-                            Event(title: "Homework", tag: "School", date: Date(timeIntervalSinceNow: 80))]
+    var events: [Event] = [Event(title: "Test", tag: "Work", date: Date(timeIntervalSinceNow: 15))]
+                            //Event(title: "Homework", tag: "School", date: Date(timeIntervalSinceNow: 80))]
 //    var events: [Event] = [Event(title: "Test", tag: "Work", date: Date()),
 //                           Event(title: "Homework", tag: "School", date: Date()),
 //                           Event(title: "Wedding", tag: "Family", date: Date()),

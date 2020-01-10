@@ -30,7 +30,13 @@ class AddEventViewController: UIViewController {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         guard let title = titleTextField.text, let tag = tagTextField.text, !title.isEmpty, !tag.isEmpty else {return}
+        let testDate = Date(timeIntervalSinceNow: 60)
+        print("Date is \(Date())")
+        print("testDate is \(testDate)")
+        //addEventDelegate?.didAddEvent(event: Event(title: "Test", tag: "Work", date: testDate))
+        // add this back later?
         addEventDelegate?.didAddEvent(event: Event(title: title, tag: tag, date: datePicker.date))
+        print("\(title) was created!")
         print("datePicker.date is \(datePicker.date)")
         navigationController?.popViewController(animated: true)
     }
