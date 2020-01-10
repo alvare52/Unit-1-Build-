@@ -16,6 +16,14 @@ protocol EventCellDelegate {
 
 class EventCollectionViewController: UICollectionViewController {
     
+    @IBAction func deleteAll(_ sender: UIBarButtonItem) {
+        for event in eventController.events {
+            eventController.events.remove(at: eventController.events.firstIndex(of: event)!)
+            collectionView.reloadData()
+        }
+    }
+    
+    
     var eventController: EventController = EventController()
     
     var timer: Timer?

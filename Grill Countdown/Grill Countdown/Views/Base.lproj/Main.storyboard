@@ -91,6 +91,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Grill Countdown" id="Hxi-PT-gZJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="qcU-vA-dZ0">
+                            <connections>
+                                <action selector="deleteAll:" destination="jdm-qM-oq6" id="BtZ-VS-LpI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="VgP-TV-zxz">
                             <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
