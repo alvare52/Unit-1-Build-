@@ -36,14 +36,11 @@ class EventCollectionViewController: UICollectionViewController {
        return formatter
     }()
 
+    /// Starts timer and loads data 
     override func viewDidLoad() {
         super.viewDidLoad()
         startTimer()
-        for event in eventController.events {
-            print("\(event.date)")
-        }
-        eventController.loadFromPersistentStore() 
-        
+        eventController.loadFromPersistentStore()
     }
     
     /// Checks the "Order" setting to display events accordingly
@@ -60,7 +57,7 @@ class EventCollectionViewController: UICollectionViewController {
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
         RunLoop.current.add(timer!, forMode: .common)
-        timer?.tolerance = 0.1 // ???
+        timer?.tolerance = 0.1
     }
     
     /// Will only run when app is not in the foreground
@@ -98,12 +95,11 @@ class EventCollectionViewController: UICollectionViewController {
             collectionView.reloadData()
             
             if currentEvent.date <= Date() {
-                print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
-                print("currentEvent: \(currentEvent.title)")
                 sendNotification()
                 showAlert(event: currentEvent)
                 eventDelegate?.updateLabels(passedEvent: currentEvent)
                 eventController.events.remove(at: eventController.events.firstIndex(of: currentEvent)!)
+                eventController.saveToPersistentStore()
                 refreshCountdowns()
                 collectionView.reloadData()
             }
@@ -129,13 +125,10 @@ class EventCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
         return 1
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return eventController.events.count
     }
 

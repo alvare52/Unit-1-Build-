@@ -47,7 +47,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     func updateViews() {
         
         guard let event = event else {return}
-        titleLabel.text = event.title + " - " + event.tag
+        titleLabel.text = event.title.capitalized + " - " + event.tag.capitalized
         tagLabel.text = dateFormatter.string(from: event.date)
         for setting in settingsController.settingsArray {
             
@@ -58,13 +58,10 @@ class EventCollectionViewCell: UICollectionViewCell {
                 countDownLabel.text = event.countdown
             }
         }
-        
-        print(event.title)
     }
     
 }
 
-// Step 5
 extension EventCollectionViewCell: EventCellDelegate {
     func updateLabels(passedEvent: Event) {
         passedEvent.title = "DONE"
@@ -72,15 +69,13 @@ extension EventCollectionViewCell: EventCellDelegate {
     }
     
     func updateCounter(passedEvent: Event) {
-        
         let date = Date(timeIntervalSinceReferenceDate: passedEvent.interval)
         countDownLabel.text = "\(countdownFormatter.string(from: date))"
-        let testString = countdownFormatter.string(from: date)
         let fixedString = correctDay(secs: passedEvent.interval) + dayFormatter.string(from: date)
         passedEvent.countdown = fixedString
     }
     
-    // takes in seconds and returns that amount in days
+    /// Takes in seconds and returns that amount in days
     func correctDay(secs: Double) -> String {
         
         var day = ""

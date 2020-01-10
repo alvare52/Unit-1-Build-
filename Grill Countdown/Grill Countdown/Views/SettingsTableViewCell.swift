@@ -14,10 +14,9 @@ class SettingsTableViewCell: UITableViewCell {
     @IBOutlet weak var switchOutlet: UISwitch!
     
     @IBAction func switchTapped(_ sender: UISwitch) {
-        print("switch tapped")
         guard let setting = setting else {return}
-        setting.isSelected.toggle()
         
+        setting.isSelected.toggle()
         if setting.title == "First to finish" {
             UserDefaults.standard.set(setting.isSelected, forKey: "ShouldShowRecentsLast")
         }
@@ -25,8 +24,6 @@ class SettingsTableViewCell: UITableViewCell {
         if setting.title == "Show Seconds" {
             UserDefaults.standard.set(setting.isSelected, forKey: "Seconds")
         }
-
-        print("\(setting.title) is now \(setting.isSelected)")
     }
     
     var setting: Setting? {
@@ -36,7 +33,6 @@ class SettingsTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
-        print("updateViews called")
         guard let setting = setting else {return}
         titleLabel.text = setting.title
         switchOutlet.isOn = setting.isSelected

@@ -26,7 +26,6 @@ class SettingsController {
         let shouldShowRecentsLast = UserDefaults.standard.bool(forKey: settings[0].key)
         settings[0].isSelected = shouldShowRecentsLast
         
-        print("order.isSelected is \(settings[0].isSelected)")
         return settings
     }
 }
