@@ -12,10 +12,12 @@ class Setting {
     // should use userDefaults to save state of switch
     var title: String
     var isSelected: Bool
+    var key: String
     
-    init(title: String, isSelected: Bool) {
+    init(title: String, isSelected: Bool, key: String) {
         self.title = title
         self.isSelected = isSelected
+        self.key = key
     }
     
 }

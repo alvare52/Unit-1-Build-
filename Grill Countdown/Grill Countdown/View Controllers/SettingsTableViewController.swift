@@ -12,7 +12,7 @@ class SettingsTableViewController: UITableViewController {
     
     var settingsController = SettingsController()
     
-    var orderSettings: [Setting] = [Setting(title: "Recents First", isSelected: true)]
+    //var orderSettings: [Setting] = [Setting(title: "Recents First", isSelected: true)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class SettingsTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? SettingsTableViewCell else {fatalError("error")}
 
         //let setting = settingsController.settingsArray[indexPath.row]
-        let setting = indexPath.section == 0 ? settingsController.settingsArray[indexPath.row] : orderSettings[indexPath.row]
+        let setting = indexPath.section == 0 ? settingsController.settingsArray[indexPath.row] : settingsController.orderArray[indexPath.row]
         
         cell.setting = setting
 
