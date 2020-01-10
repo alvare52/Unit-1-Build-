@@ -263,55 +263,146 @@
             </objects>
             <point key="canvasLocation" x="1436" y="822"/>
         </scene>
-        <!--JEFF GOLDBLUM-->
+        <!--JEFF 1-->
         <scene sceneID="aMl-bn-WuD">
             <objects>
-                <viewController id="tc2-F0-3ZS" sceneMemberID="viewController">
+                <viewController id="tc2-F0-3ZS" customClass="Jeff3ViewController" customModule="Grill_Countdown" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cjS-jD-Zqt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeffgoldblum" translatesAutoresizingMaskIntoConstraints="NO" id="ow3-J8-cB3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="248"/>
+                                <rect key="frame" x="7" y="262.5" width="400" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="248" id="tgQ-35-7td"/>
-                                    <constraint firstAttribute="width" constant="414" id="zxF-OZ-30o"/>
+                                    <constraint firstAttribute="height" constant="200" id="Q0z-RN-oPu"/>
+                                    <constraint firstAttribute="width" constant="400" id="bZZ-8E-4aK"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeff2" translatesAutoresizingMaskIntoConstraints="NO" id="k1b-C7-Mqn">
-                                <rect key="frame" x="0.0" y="234" width="414" height="248"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ut-HN-Tmn">
+                                <rect key="frame" x="27" y="488" width="360" height="100"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="248" id="DOv-VA-SMP"/>
-                                    <constraint firstAttribute="width" constant="414" id="Fqx-6N-UQ1"/>
+                                    <constraint firstAttribute="height" constant="100" id="8cC-SI-v3D"/>
+                                    <constraint firstAttribute="width" constant="360" id="ycR-K6-hyp"/>
                                 </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeff4" translatesAutoresizingMaskIntoConstraints="NO" id="9YN-Jl-Uj3">
-                                <rect key="frame" x="0.0" y="477" width="414" height="248"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="SJP-fI-ZUw"/>
-                                    <constraint firstAttribute="height" constant="248" id="zn5-M2-04J"/>
-                                </constraints>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Mayhaps Another Jeff?"/>
+                                <connections>
+                                    <segue destination="vZj-SB-zqu" kind="show" id="FEG-U0-fSB"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ow3-J8-cB3" firstAttribute="top" secondItem="LaT-dJ-j3J" secondAttribute="top" id="38C-8X-xKa"/>
-                            <constraint firstItem="9YN-Jl-Uj3" firstAttribute="top" secondItem="k1b-C7-Mqn" secondAttribute="bottom" constant="-5" id="3bq-jS-onj"/>
-                            <constraint firstItem="9YN-Jl-Uj3" firstAttribute="leading" secondItem="LaT-dJ-j3J" secondAttribute="leading" id="T08-1g-VjQ"/>
-                            <constraint firstItem="k1b-C7-Mqn" firstAttribute="trailing" secondItem="LaT-dJ-j3J" secondAttribute="trailing" id="VcG-qL-VUo"/>
-                            <constraint firstItem="ow3-J8-cB3" firstAttribute="leading" secondItem="LaT-dJ-j3J" secondAttribute="leading" id="d7R-kP-nQk"/>
-                            <constraint firstItem="ow3-J8-cB3" firstAttribute="trailing" secondItem="LaT-dJ-j3J" secondAttribute="trailing" id="dqV-6j-fmp"/>
-                            <constraint firstItem="9YN-Jl-Uj3" firstAttribute="trailing" secondItem="LaT-dJ-j3J" secondAttribute="trailing" id="jq7-Lm-mVU"/>
-                            <constraint firstItem="k1b-C7-Mqn" firstAttribute="leading" secondItem="LaT-dJ-j3J" secondAttribute="leading" id="rEn-5B-hES"/>
-                            <constraint firstItem="k1b-C7-Mqn" firstAttribute="top" secondItem="ow3-J8-cB3" secondAttribute="bottom" constant="-14" id="zLr-zL-zVK"/>
+                            <constraint firstItem="0Ut-HN-Tmn" firstAttribute="top" secondItem="ow3-J8-cB3" secondAttribute="bottom" constant="25.5" id="3bQ-3M-Wvy"/>
+                            <constraint firstItem="LaT-dJ-j3J" firstAttribute="trailing" secondItem="0Ut-HN-Tmn" secondAttribute="trailing" constant="27" id="P6P-jc-sen"/>
+                            <constraint firstItem="0Ut-HN-Tmn" firstAttribute="centerX" secondItem="cjS-jD-Zqt" secondAttribute="centerX" id="VEH-Ie-Ozo"/>
+                            <constraint firstItem="ow3-J8-cB3" firstAttribute="centerX" secondItem="cjS-jD-Zqt" secondAttribute="centerX" id="pJb-nN-74x"/>
+                            <constraint firstItem="0Ut-HN-Tmn" firstAttribute="leading" secondItem="LaT-dJ-j3J" secondAttribute="leading" constant="27" id="tGl-Oz-Vv3"/>
+                            <constraint firstItem="ow3-J8-cB3" firstAttribute="centerY" secondItem="cjS-jD-Zqt" secondAttribute="centerY" id="vJ4-l8-2nq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LaT-dJ-j3J"/>
                     </view>
-                    <navigationItem key="navigationItem" title="JEFF GOLDBLUM" id="bXC-9Q-Qfr"/>
+                    <navigationItem key="navigationItem" title="JEFF 1" id="bXC-9Q-Qfr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLC-i7-2L0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3521.739130434783" y="506.91964285714283"/>
+        </scene>
+        <!--JEFF 2-->
+        <scene sceneID="6Eg-JC-uva">
+            <objects>
+                <viewController id="vZj-SB-zqu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q6A-gu-gD4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeff3" translatesAutoresizingMaskIntoConstraints="NO" id="YV4-fc-5yI">
+                                <rect key="frame" x="7" y="262.5" width="400" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="AFF-7i-6ky"/>
+                                    <constraint firstAttribute="height" constant="200" id="MPh-ds-OnQ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFX-H4-rRB">
+                                <rect key="frame" x="27" y="488" width="360" height="100"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="6KF-BD-6rP"/>
+                                    <constraint firstAttribute="height" constant="100" id="Kii-JN-JNh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Ah! It's Jeff!"/>
+                                <connections>
+                                    <segue destination="geV-pB-fvf" kind="show" id="3RY-lH-gFH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pFX-H4-rRB" firstAttribute="top" secondItem="YV4-fc-5yI" secondAttribute="bottom" constant="25.5" id="JeF-EJ-JhG"/>
+                            <constraint firstItem="pFX-H4-rRB" firstAttribute="leading" secondItem="zOJ-Gq-hRc" secondAttribute="leading" constant="27" id="L8n-Rp-X6L"/>
+                            <constraint firstItem="YV4-fc-5yI" firstAttribute="centerY" secondItem="q6A-gu-gD4" secondAttribute="centerY" id="afv-9q-nfF"/>
+                            <constraint firstItem="zOJ-Gq-hRc" firstAttribute="trailing" secondItem="pFX-H4-rRB" secondAttribute="trailing" constant="27" id="ma3-6G-lhb"/>
+                            <constraint firstItem="YV4-fc-5yI" firstAttribute="centerX" secondItem="q6A-gu-gD4" secondAttribute="centerX" id="xtd-6R-0bR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zOJ-Gq-hRc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="JEFF 2" id="Mig-yw-mGN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dwu-Y2-lPU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4222" y="507"/>
+        </scene>
+        <!--LAST JEFF-->
+        <scene sceneID="gTV-11-afk">
+            <objects>
+                <viewController id="geV-pB-fvf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1hJ-le-2ZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeff4" translatesAutoresizingMaskIntoConstraints="NO" id="YGc-Co-2PR">
+                                <rect key="frame" x="7" y="262.5" width="400" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="bb7-Yw-JyG"/>
+                                    <constraint firstAttribute="width" constant="400" id="sM2-fK-MeT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ds7-Tf-gQR">
+                                <rect key="frame" x="27" y="488" width="360" height="100"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="bbs-so-n8C"/>
+                                    <constraint firstAttribute="height" constant="100" id="l5H-Qf-Lyj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Back To Jeff 1"/>
+                                <connections>
+                                    <action selector="backToRootJeff:" destination="RcW-hn-x68" eventType="touchUpInside" id="RNL-pA-Lyb"/>
+                                    <segue destination="RcW-hn-x68" kind="unwind" unwindAction="backToJeff1:" id="7sb-hp-hNn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o70-NM-zMy" firstAttribute="trailing" secondItem="Ds7-Tf-gQR" secondAttribute="trailing" constant="27" id="AYg-b6-Kth"/>
+                            <constraint firstItem="YGc-Co-2PR" firstAttribute="centerX" secondItem="1hJ-le-2ZJ" secondAttribute="centerX" id="Hh5-e7-N8m"/>
+                            <constraint firstItem="Ds7-Tf-gQR" firstAttribute="leading" secondItem="o70-NM-zMy" secondAttribute="leading" constant="27" id="X1x-Si-gWU"/>
+                            <constraint firstItem="YGc-Co-2PR" firstAttribute="centerY" secondItem="1hJ-le-2ZJ" secondAttribute="centerY" id="dfE-yC-wxi"/>
+                            <constraint firstItem="Ds7-Tf-gQR" firstAttribute="top" secondItem="YGc-Co-2PR" secondAttribute="bottom" constant="25.5" id="ymr-mv-0iS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o70-NM-zMy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="LAST JEFF" id="bn9-eL-Zd1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dH-vI-ScF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="RcW-hn-x68" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4905.7971014492759" y="507.58928571428567"/>
         </scene>
         <!--Settings-->
         <scene sceneID="JYC-j2-2OF">
@@ -341,6 +432,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Yun-Wm-9mh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -354,7 +451,7 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="64" height="58"/>
-        <image name="jeff2" width="300" height="168"/>
+        <image name="jeff3" width="284" height="177"/>
         <image name="jeff4" width="300" height="168"/>
         <image name="jeffgoldblum" width="300" height="168"/>
         <image name="person" catalog="system" width="64" height="58"/>

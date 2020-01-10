@@ -15,6 +15,7 @@
 		1B571DC523C79D85003802BD /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B571DC423C79D85003802BD /* SettingsTableViewCell.swift */; };
 		1B571DC723C7A147003802BD /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B571DC623C7A147003802BD /* Setting.swift */; };
 		1B571DC923C7A1FD003802BD /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B571DC823C7A1FD003802BD /* SettingsController.swift */; };
+		1B571DCB23C8CE99003802BD /* Jeff3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B571DCA23C8CE99003802BD /* Jeff3ViewController.swift */; };
 		1B58B16323C3FD6F00481D3E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B58B16223C3FD6F00481D3E /* Event.swift */; };
 		1B58B16523C3FDFF00481D3E /* EventCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B58B16423C3FDFF00481D3E /* EventCollectionViewController.swift */; };
 		1B58B16723C3FE4700481D3E /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B58B16623C3FE4700481D3E /* EventCollectionViewCell.swift */; };
@@ -33,6 +34,7 @@
 		1B571DC423C79D85003802BD /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		1B571DC623C7A147003802BD /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		1B571DC823C7A1FD003802BD /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		1B571DCA23C8CE99003802BD /* Jeff3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jeff3ViewController.swift; sourceTree = "<group>"; };
 		1B58B16223C3FD6F00481D3E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		1B58B16423C3FDFF00481D3E /* EventCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewController.swift; sourceTree = "<group>"; };
 		1B58B16623C3FE4700481D3E /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				1B58B16423C3FDFF00481D3E /* EventCollectionViewController.swift */,
 				1B58B16A23C49B2B00481D3E /* AddEventViewController.swift */,
 				1B571DC223C79D31003802BD /* SettingsTableViewController.swift */,
+				1B571DCA23C8CE99003802BD /* Jeff3ViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B58B16323C3FD6F00481D3E /* Event.swift in Sources */,
+				1B571DCB23C8CE99003802BD /* Jeff3ViewController.swift in Sources */,
 				1B58B16B23C49B2B00481D3E /* AddEventViewController.swift in Sources */,
 				1B571DC523C79D85003802BD /* SettingsTableViewCell.swift in Sources */,
 				1B58B16723C3FE4700481D3E /* EventCollectionViewCell.swift in Sources */,
