@@ -74,10 +74,11 @@ class EventCollectionViewController: UICollectionViewController {
 
     func refreshCountdowns() {
         collectionView.reloadData()
-        for visibleCell in collectionView.visibleCells {
-            guard let cell = visibleCell as? EventCollectionViewCell else { continue }
-            cell.updateViews()
-        }
+        // was this breaking day formatter and (also commented out event.countdown in ECVC)
+//        for visibleCell in collectionView.visibleCells {
+//            guard let cell = visibleCell as? EventCollectionViewCell else { continue }
+//            cell.updateViews()
+//        }
     }
      
     
@@ -93,8 +94,11 @@ class EventCollectionViewController: UICollectionViewController {
             print("Date() is \(Date())")
             eventDelegate?.updateCounter(passedEvent: currentEvent) // ?
             refreshCountdowns()
-            //collectionView.reloadData()
-            if dateFormatter.string(from: currentEvent.date) <= dateFormatter.string(from: Date()) {
+            collectionView.reloadData()
+            
+            // OLD way of checking, using dateFormatter that doesn't have dd:
+            //if dateFormatter.string(from: currentEvent.date) <= dateFormatter.string(from: Date())
+            if currentEvent.date <= Date() {
                 print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
                 print("currentEvent: \(currentEvent.title)")
                 //sendNotification() // not done,
@@ -104,7 +108,7 @@ class EventCollectionViewController: UICollectionViewController {
                 // ADD THIS BACK LATER
                 eventController.events.remove(at: eventController.events.firstIndex(of: currentEvent)!)
                 refreshCountdowns()
-                //collectionView.reloadData()
+                collectionView.reloadData()
                 // if events.count is 0, then timer.invalidate(), timer = nil
             }
         }

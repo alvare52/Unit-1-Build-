@@ -20,7 +20,7 @@ class Event: Codable, Equatable {
     var date: Date
     var interval: TimeInterval
     var countdown: String
-    //var lastDate: Date
+    var totalInterval: TimeInterval
     
     init(title: String, tag: String, date: Date) {
         self.title = title
@@ -28,8 +28,6 @@ class Event: Codable, Equatable {
         self.date = date
         self.interval = date.timeIntervalSinceNow
         self.countdown = "00:00:00:00"
-        //self.lastDate = date - self.interval
-        print("current date is \(Date())")
-        print("event.date = \(self.date)")
+        self.totalInterval = date.timeIntervalSinceNow
     }
 }
