@@ -12,8 +12,6 @@ class SettingsTableViewController: UITableViewController {
     
     var settingsController = SettingsController()
     
-    //var orderSettings: [Setting] = [Setting(title: "Recents First", isSelected: true)]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

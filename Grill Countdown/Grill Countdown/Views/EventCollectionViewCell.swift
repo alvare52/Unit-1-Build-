@@ -35,6 +35,8 @@ class EventCollectionViewCell: UICollectionViewCell {
         return formatter
     }()
     
+    var settingsController = SettingsController()
+    
     var delegate: EventCellDelegate?
     
     var event: Event? {
@@ -44,14 +46,22 @@ class EventCollectionViewCell: UICollectionViewCell {
     }
     
     func updateViews() {
+        
         guard let event = event else {return}
         titleLabel.text = event.title + " - " + event.tag
-        //tagLabel.text = event.tag
-        print("TAGLABEL is \(dateFormatter.string(from: event.date))")
-        //let fakeLabel = event.date
-        //print("fake label is \(fakeLabel)")
         tagLabel.text = dateFormatter.string(from: event.date)
-        countDownLabel.text = event.countdown
+        for setting in settingsController.settingsArray {
+            
+            if setting.title == "Show Seconds" && !setting.isSelected {
+                countDownLabel.text = "\(event.countdown.prefix(8))"
+            }
+            else {
+                countDownLabel.text = event.countdown
+            }
+        }
+        
+        // add later because it works
+        //countDownLabel.text = event.countdown
         
         print(event.title)
     }
@@ -96,6 +106,7 @@ extension EventCollectionViewCell: EventCellDelegate {
         let secsInDay: Int = 86400
         
         switch Int(secs) {
+            
         case 0..<secsInDay:
             day = "00"
         case secsInDay..<secsInDay*2:
@@ -164,31 +175,6 @@ extension EventCollectionViewCell: EventCellDelegate {
         default:
             day = "+31"
         }
-        
         return day
     }
-    
-    // Takes incorrect days left and returns string that is minus 1 day (01 -> 00)
-//    func fixDay(string: String) -> String {
-//        var day = string.prefix(2)
-//
-//        print("day was \(day)")
-//
-//        let numDay = Int("\(day)")
-//        if numDay != 0 {
-//            day = "\(numDay! - 1)"
-//        }
-//        else {
-//            day = "\(day)"
-//        }
-//
-//        switch day {
-//        case "0","1","2","3","4","5","6","7","8","9":
-//            day = "0" + "\(day)"
-//        default:
-//            break
-//        }
-//        print("DAY IS NOW \(day)")
-//        return "\(day)"
-//    }
 }

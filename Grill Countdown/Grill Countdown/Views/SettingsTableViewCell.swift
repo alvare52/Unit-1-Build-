@@ -8,14 +8,13 @@
 
 import UIKit
 
-protocol SettingsDelegate {
-    func didChangeSetting(setting: Setting)
-}
+
 
 class SettingsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var switchOutlet: UISwitch!
+    
     
     @IBAction func switchTapped(_ sender: UISwitch) {
         print("switch tapped")
@@ -24,12 +23,6 @@ class SettingsTableViewCell: UITableViewCell {
         
         if setting.title == "Recents Last" {
             UserDefaults.standard.set(setting.isSelected, forKey: "ShouldShowRecentsLast")
-        }
-        if setting.title == "Show Days" {
-            UserDefaults.standard.set(setting.isSelected, forKey: "Days")
-        }
-        if setting.title == "Show Hours" {
-            UserDefaults.standard.set(setting.isSelected, forKey: "Hours")
         }
         if setting.title == "Show Minutes" {
             UserDefaults.standard.set(setting.isSelected, forKey: "Minutes")
