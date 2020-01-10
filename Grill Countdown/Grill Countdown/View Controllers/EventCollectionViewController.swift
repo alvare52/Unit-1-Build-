@@ -45,23 +45,7 @@ class EventCollectionViewController: UICollectionViewController {
         for event in eventController.events {
             print("\(event.date)")
         }
-        
-//        // add this to viewcell
-        let dateFormatter : DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MMM-dd HH:mm:ss"
-        //dateFormatter.timeZone = TimeZone(secondsFromGMT: -28800)
-        dateFormatter.locale = Locale(identifier: "en_US")
-        let displayedDate = Date()
-        var realDate = Date()
-        realDate.addTimeInterval(-28800)
-        print("realDate is \(realDate)")
-        print("displayedDate is \(displayedDate)")
-        let displayedDateString = dateFormatter.string(from: displayedDate)
-        let realDateString = dateFormatter.string(from: realDate)
-        print("realDateString is \(realDateString)")
-        print("displayedDateString is \(displayedDateString)")
-        
-        //sendNotification() not done
+        //eventController.loadFromPersistentStore() // Later or viewWillAppear
     }
     
     func startTimer() {
@@ -208,6 +192,7 @@ class EventCollectionViewController: UICollectionViewController {
 extension EventCollectionViewController: AddEventDelegate {
     func didAddEvent(event: Event) {
         eventController.events.append(event)
+        //eventController.saveToPersistentStore() // Later
         collectionView.reloadData()
     }
 }
