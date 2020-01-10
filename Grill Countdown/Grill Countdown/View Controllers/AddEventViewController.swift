@@ -5,7 +5,6 @@
 //  Created by Jorge Alvarez on 1/7/20.
 //  Copyright © 2020 Jorge Alvarez. All rights reserved.
 //
-// add alert saying "enter blah" if something is left blank
 
 import UIKit
 

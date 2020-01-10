@@ -46,6 +46,7 @@ class EventCollectionViewController: UICollectionViewController {
         
     }
     
+    /// Checks the "Order" setting to display events accordingly
     override func viewWillAppear(_ animated: Bool) {
         if settingsController.orderArray[0].isSelected {
             orderEvents()
@@ -55,6 +56,7 @@ class EventCollectionViewController: UICollectionViewController {
         }
     }
     
+    /// Main timer that is used to check all events being tracked
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateTimer(timer:))
         RunLoop.current.add(timer!, forMode: .common)
