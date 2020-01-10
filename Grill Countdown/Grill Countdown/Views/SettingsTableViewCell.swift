@@ -21,12 +21,10 @@ class SettingsTableViewCell: UITableViewCell {
         guard let setting = setting else {return}
         setting.isSelected.toggle()
         
-        if setting.title == "Recents Last" {
+        if setting.title == "First to finish" {
             UserDefaults.standard.set(setting.isSelected, forKey: "ShouldShowRecentsLast")
         }
-        if setting.title == "Show Minutes" {
-            UserDefaults.standard.set(setting.isSelected, forKey: "Minutes")
-        }
+        
         if setting.title == "Show Seconds" {
             UserDefaults.standard.set(setting.isSelected, forKey: "Seconds")
         }

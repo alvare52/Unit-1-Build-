@@ -21,7 +21,7 @@ class SettingsController {
     }
     
     var orderArray: [Setting] {
-        let settings = [Setting(title: "Recents Last", isSelected: true, key: "ShouldShowRecentsLast")]
+        let settings = [Setting(title: "First to finish", isSelected: true, key: "ShouldShowRecentsLast")]
         
         let shouldShowRecentsLast = UserDefaults.standard.bool(forKey: settings[0].key)
         settings[0].isSelected = shouldShowRecentsLast

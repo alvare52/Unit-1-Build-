@@ -22,10 +22,9 @@ class EventCollectionViewController: UICollectionViewController {
             collectionView.reloadData()
         }
     }
-    
-    
-    var eventController: EventController = EventController()
-    
+
+    var eventController = EventController()
+    var settingsController = SettingsController()
     var timer: Timer?
     
     // Step 2
@@ -46,6 +45,16 @@ class EventCollectionViewController: UICollectionViewController {
             print("\(event.date)")
         }
         //eventController.loadFromPersistentStore() // Later or viewWillAppear
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if settingsController.orderArray[0].isSelected {
+            orderEvents()
+        }
+        else {
+            unOrderEvents()
+        }
     }
     
     func startTimer() {
@@ -54,6 +63,7 @@ class EventCollectionViewController: UICollectionViewController {
         timer?.tolerance = 0.1 // ???
     }
     
+    /// Will only run when app is not in the foreground
     func sendNotification() {
         let note = UNMutableNotificationContent()
         note.title = "IT'S TIME TO GRILL!"
@@ -66,15 +76,19 @@ class EventCollectionViewController: UICollectionViewController {
 
     func refreshCountdowns() {
         collectionView.reloadData()
-        // was this breaking day formatter and (also commented out event.countdown in ECVC)
-//        for visibleCell in collectionView.visibleCells {
-//            guard let cell = visibleCell as? EventCollectionViewCell else { continue }
-//            cell.updateViews()
-//        }
+        
     }
      
+    /// Returns and array of ordered events and starts with the event that is closest to finishing
+    func orderEvents() {
+        eventController.events.sort(by: { $0.interval < $1.interval })
+    }
     
-    // should check that array isn't empty
+    func unOrderEvents() {
+        eventController.events.sort(by: { $0.interval > $1.interval })
+    }
+    
+    /// Updates all events, removes them when finished and displays alert (or notification)
     func updateTimer(timer: Timer) {
         
         for currentEvent in eventController.events {
@@ -193,6 +207,7 @@ extension EventCollectionViewController: AddEventDelegate {
     func didAddEvent(event: Event) {
         eventController.events.append(event)
         //eventController.saveToPersistentStore() // Later
+        orderEvents()//?
         collectionView.reloadData()
     }
 }
