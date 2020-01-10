@@ -87,12 +87,13 @@ extension EventCollectionViewCell: EventCellDelegate {
         print(fixedString)
         passedEvent.countdown = fixedString
         
+
         //countDownLabel.text = fixedString
         
         //updateViews() //?
     }
     
-    // takes in total TimeInterval has cases saying how many days are in it
+    // takes in seconds
     func correctDay(secs: Double) -> String {
         print("SECS PASSED = \(secs)")
         var day = ""
@@ -107,59 +108,62 @@ extension EventCollectionViewCell: EventCellDelegate {
             day = "02"
         case secsInDay*3..<secsInDay*4:
             day = "03"
-            
-        case secsInDay..<secsInDay*2:
+        case secsInDay*4..<secsInDay*5:
             day = "04"
-        case secsInDay*2..<secsInDay*3:
+        case secsInDay*5..<secsInDay*6:
             day = "05"
-        case secsInDay*3..<secsInDay*4:
+        case secsInDay*6..<secsInDay*7:
             day = "06"
-        case secsInDay..<secsInDay*2:
+        case secsInDay*7..<secsInDay*8:
             day = "07"
-        case secsInDay*2..<secsInDay*3:
+        case secsInDay*8..<secsInDay*9:
             day = "08"
-        case secsInDay*3..<secsInDay*4:
+        case secsInDay*9..<secsInDay*10:
             day = "09"
-        case secsInDay..<secsInDay*2:
+        case secsInDay*10..<secsInDay*11:
             day = "10"
-        case secsInDay*2..<secsInDay*3:
+        case secsInDay*11..<secsInDay*12:
             day = "11"
-        case secsInDay*3..<secsInDay*4:
+        case secsInDay*12..<secsInDay*13:
             day = "12"
-        case secsInDay..<secsInDay*2:
+        case secsInDay*13..<secsInDay*14:
             day = "13"
-        case secsInDay*2..<secsInDay*3:
+        case secsInDay*14..<secsInDay*15:
             day = "14"
-        case secsInDay*3..<secsInDay*4:
+        case secsInDay*15..<secsInDay*16:
             day = "15"
-        case secsInDay..<secsInDay*2:
+        case secsInDay*16..<secsInDay*17:
             day = "16"
-        case secsInDay*2..<secsInDay*3:
+        case secsInDay*17..<secsInDay*18:
             day = "17"
-        case secsInDay*3..<secsInDay*4:
+        case secsInDay*18..<secsInDay*19:
             day = "18"
-        case secsInDay..<secsInDay*2:
+        case secsInDay*19..<secsInDay*20:
             day = "19"
-        case secsInDay*2..<secsInDay*3:
+        case secsInDay*20..<secsInDay*21:
             day = "20"
-        case secsInDay*3..<secsInDay*4:
+        case secsInDay*21..<secsInDay*22:
             day = "21"
-        case secsInDay*2..<secsInDay*3:
+        case secsInDay*22..<secsInDay*23:
             day = "22"
-        case secsInDay*3..<secsInDay*4:
+        case secsInDay*23..<secsInDay*24:
             day = "23"
-        case secsInDay..<secsInDay*2:
+        case secsInDay*24..<secsInDay*25:
             day = "24"
-        case secsInDay*2..<secsInDay*3:
+        case secsInDay*25..<secsInDay*26:
             day = "25"
-        case secsInDay*3..<secsInDay*4:
+        case secsInDay*26..<secsInDay*27:
             day = "26"
-        case secsInDay..<secsInDay*2:
+        case secsInDay*27..<secsInDay*28:
             day = "27"
-        case secsInDay*2..<secsInDay*3:
-            day = "26"
-        case secsInDay*3..<secsInDay*4:
-            day = "21"
+        case secsInDay*28..<secsInDay*29:
+            day = "28"
+        case secsInDay*29..<secsInDay*30:
+            day = "29"
+        case secsInDay*30..<secsInDay*31:
+            day = "30"
+        case secsInDay*31..<secsInDay*32:
+            day = "31"
             
         default:
             day = "+31"
