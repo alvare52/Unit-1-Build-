@@ -87,15 +87,11 @@ extension EventCollectionViewCell: EventCellDelegate {
         print(fixedString)
         passedEvent.countdown = fixedString
         
-
-        //countDownLabel.text = fixedString
-        
-        //updateViews() //?
     }
     
-    // takes in seconds
+    // takes in seconds and returns that amount in days
     func correctDay(secs: Double) -> String {
-        print("SECS PASSED = \(secs)")
+        
         var day = ""
         let secsInDay: Int = 86400
         
@@ -164,35 +160,35 @@ extension EventCollectionViewCell: EventCellDelegate {
             day = "30"
         case secsInDay*31..<secsInDay*32:
             day = "31"
-            
+        // kill me
         default:
             day = "+31"
         }
-        print("DAY NOW = \(day)")
+        
         return day
     }
     
     // Takes incorrect days left and returns string that is minus 1 day (01 -> 00)
-    func fixDay(string: String) -> String {
-        var day = string.prefix(2)
-        
-        print("day was \(day)")
-
-        let numDay = Int("\(day)")
-        if numDay != 0 {
-            day = "\(numDay! - 1)"
-        }
-        else {
-            day = "\(day)"
-        }
-        
-        switch day {
-        case "0","1","2","3","4","5","6","7","8","9":
-            day = "0" + "\(day)"
-        default:
-            break
-        }
-        print("DAY IS NOW \(day)")
-        return "\(day)"
-    }
+//    func fixDay(string: String) -> String {
+//        var day = string.prefix(2)
+//
+//        print("day was \(day)")
+//
+//        let numDay = Int("\(day)")
+//        if numDay != 0 {
+//            day = "\(numDay! - 1)"
+//        }
+//        else {
+//            day = "\(day)"
+//        }
+//
+//        switch day {
+//        case "0","1","2","3","4","5","6","7","8","9":
+//            day = "0" + "\(day)"
+//        default:
+//            break
+//        }
+//        print("DAY IS NOW \(day)")
+//        return "\(day)"
+//    }
 }

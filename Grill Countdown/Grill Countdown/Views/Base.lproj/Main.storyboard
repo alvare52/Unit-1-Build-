@@ -258,32 +258,55 @@
             </objects>
             <point key="canvasLocation" x="1436" y="822"/>
         </scene>
-        <!--Jeff Goldblum-->
+        <!--JEFF GOLDBLUM-->
         <scene sceneID="aMl-bn-WuD">
             <objects>
                 <viewController id="tc2-F0-3ZS" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cjS-jD-Zqt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ow3-J8-cB3">
-                                <rect key="frame" x="0.0" y="20.5" width="414" height="792"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeffgoldblum" translatesAutoresizingMaskIntoConstraints="NO" id="ow3-J8-cB3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="248"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="248" id="tgQ-35-7td"/>
+                                    <constraint firstAttribute="width" constant="414" id="zxF-OZ-30o"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeff2" translatesAutoresizingMaskIntoConstraints="NO" id="k1b-C7-Mqn">
+                                <rect key="frame" x="0.0" y="234" width="414" height="248"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="248" id="DOv-VA-SMP"/>
+                                    <constraint firstAttribute="width" constant="414" id="Fqx-6N-UQ1"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeff4" translatesAutoresizingMaskIntoConstraints="NO" id="9YN-Jl-Uj3">
+                                <rect key="frame" x="0.0" y="477" width="414" height="248"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="SJP-fI-ZUw"/>
+                                    <constraint firstAttribute="height" constant="248" id="zn5-M2-04J"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ow3-J8-cB3" firstAttribute="top" secondItem="cjS-jD-Zqt" secondAttribute="top" constant="20" symbolic="YES" id="IfL-Ni-lEf"/>
-                            <constraint firstItem="ow3-J8-cB3" firstAttribute="leading" secondItem="LaT-dJ-j3J" secondAttribute="leading" id="JoI-IP-YM0"/>
-                            <constraint firstItem="ow3-J8-cB3" firstAttribute="trailing" secondItem="LaT-dJ-j3J" secondAttribute="trailing" id="Mqd-ct-O5d"/>
-                            <constraint firstItem="ow3-J8-cB3" firstAttribute="bottom" secondItem="LaT-dJ-j3J" secondAttribute="bottom" id="tcc-e7-g7S"/>
+                            <constraint firstItem="ow3-J8-cB3" firstAttribute="top" secondItem="LaT-dJ-j3J" secondAttribute="top" id="38C-8X-xKa"/>
+                            <constraint firstItem="9YN-Jl-Uj3" firstAttribute="top" secondItem="k1b-C7-Mqn" secondAttribute="bottom" constant="-5" id="3bq-jS-onj"/>
+                            <constraint firstItem="9YN-Jl-Uj3" firstAttribute="leading" secondItem="LaT-dJ-j3J" secondAttribute="leading" id="T08-1g-VjQ"/>
+                            <constraint firstItem="k1b-C7-Mqn" firstAttribute="trailing" secondItem="LaT-dJ-j3J" secondAttribute="trailing" id="VcG-qL-VUo"/>
+                            <constraint firstItem="ow3-J8-cB3" firstAttribute="leading" secondItem="LaT-dJ-j3J" secondAttribute="leading" id="d7R-kP-nQk"/>
+                            <constraint firstItem="ow3-J8-cB3" firstAttribute="trailing" secondItem="LaT-dJ-j3J" secondAttribute="trailing" id="dqV-6j-fmp"/>
+                            <constraint firstItem="9YN-Jl-Uj3" firstAttribute="trailing" secondItem="LaT-dJ-j3J" secondAttribute="trailing" id="jq7-Lm-mVU"/>
+                            <constraint firstItem="k1b-C7-Mqn" firstAttribute="leading" secondItem="LaT-dJ-j3J" secondAttribute="leading" id="rEn-5B-hES"/>
+                            <constraint firstItem="k1b-C7-Mqn" firstAttribute="top" secondItem="ow3-J8-cB3" secondAttribute="bottom" constant="-14" id="zLr-zL-zVK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LaT-dJ-j3J"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Jeff Goldblum" id="bXC-9Q-Qfr"/>
+                    <navigationItem key="navigationItem" title="JEFF GOLDBLUM" id="bXC-9Q-Qfr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLC-i7-2L0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3522" y="507"/>
+            <point key="canvasLocation" x="3521.739130434783" y="506.91964285714283"/>
         </scene>
         <!--Settings-->
         <scene sceneID="JYC-j2-2OF">
@@ -310,7 +333,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JVN-aK-7Fw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Jeff" image="person" catalog="system" id="Vjw-ZX-3x4"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yun-Wm-9mh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Yun-Wm-9mh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -326,8 +349,10 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="64" height="58"/>
+        <image name="jeff2" width="300" height="168"/>
+        <image name="jeff4" width="300" height="168"/>
+        <image name="jeffgoldblum" width="300" height="168"/>
         <image name="person" catalog="system" width="64" height="58"/>
-        <image name="person.circle.fill" catalog="system" width="64" height="60"/>
         <image name="timer" catalog="system" width="64" height="60"/>
     </resources>
 </document>
