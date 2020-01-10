@@ -67,7 +67,7 @@ class EventCollectionViewController: UICollectionViewController {
         note.title = "IT'S TIME TO GRILL!"
         note.body = "Start grillin for God's sake!"
         note.sound = UNNotificationSound.default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
         let request = UNNotificationRequest(identifier: "done", content: note, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
@@ -101,7 +101,7 @@ class EventCollectionViewController: UICollectionViewController {
             if currentEvent.date <= Date() {
                 print("\(currentEvent.title) \(currentEvent.tag) IS DONE")
                 print("currentEvent: \(currentEvent.title)")
-                //sendNotification() // not done,
+                sendNotification() // not done,
                 showAlert(event: currentEvent) // uncomment later
                 // Step 3
                 eventDelegate?.updateLabels(passedEvent: currentEvent)

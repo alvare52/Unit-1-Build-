@@ -9,12 +9,6 @@
 import Foundation
 
 class SettingsController {
-//    var settingsArray: [Setting] = [Setting(title: "Show Days", isSelected: true),
-//                                    Setting(title: "Show Hours", isSelected: true),
-//                                    Setting(title: "Show Minutes", isSelected: true),
-//                                    Setting(title: "Show Seconds", isSelected: true)]
-//
-//    var orderArray: [Setting] = [Setting(title: "Recents Last", isSelected: true)]
     
     var settingsArray: [Setting] {
         let settings = [Setting(title: "Show Seconds", isSelected: true, key: "Seconds")]
